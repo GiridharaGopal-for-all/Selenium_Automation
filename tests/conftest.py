@@ -10,11 +10,11 @@ pytest_html = None
 
 @pytest.fixture(scope="class")
 def browser(request):
-    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
-    driver.get("https://rahulshettyacademy.com/loginpagePractise/")
-    driver.maximize_window()
+    driver_path = ChromeDriverManager(path=os.path.expanduser("~/.wdm")).install()
+    service = Service(driver_path)
+    driver = webdriver.Chrome(service=service)
     request.cls.driver = driver
-    yield
+    yield driver
     driver.quit()
 
 @pytest.fixture
