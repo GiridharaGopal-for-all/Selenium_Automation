@@ -16,4 +16,4 @@ class HomePage():
         for index, product in enumerate(product_elements, start=1):
             if product.text in target_products:
                 self.driver.find_element(
-                    By.XPATH, f'(//button[@class="btn btn-info0"])[{index}]').click()
+                    By.XPATH, f'(//button[@class="btn btn-info"])[{index}]').click()
