@@ -10,7 +10,7 @@ pytest_html = None
 
 @pytest.fixture(scope="class")
 def browser(request):
-    service = Service("C:\Users\Devils Den\WebDrivers")
+    service = Service("C:/Users/Devils Den/WebDrivers")
     driver = webdriver.Chrome(service=service)
     request.cls.driver = driver
     yield driver
