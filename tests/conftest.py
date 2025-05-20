@@ -10,7 +10,7 @@ pytest_html = None
 
 @pytest.fixture(scope="class")
 def browser(request):
-    driver_path = ChromeDriverManager(path=os.path.expanduser("~/.wdm")).install()
+    driver_path = ChromeDriverManager().install()
     service = Service(driver_path)
     driver = webdriver.Chrome(service=service)
     request.cls.driver = driver
