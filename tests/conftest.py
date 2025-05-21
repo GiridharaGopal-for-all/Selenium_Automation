@@ -1,5 +1,6 @@
 import pytest
 from selenium import webdriver
+
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 import os
@@ -10,10 +11,11 @@ pytest_html = None
 
 @pytest.fixture(scope="class")
 def browser(request):
-    service = Service("C:/Users/Devils Den/WebDrivers/chromedriver.exe")
+    service = Service(ChromeDriverManager().install())
     driver = webdriver.Chrome(service=service)
+    driver.maximize_window()
     request.cls.driver = driver
-    yield driver
+    yield
     driver.quit()
 
 @pytest.fixture
