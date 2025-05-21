@@ -15,6 +15,7 @@ def browser(request):
     driver = webdriver.Chrome(service=service)
     driver.maximize_window()
     driver.implicitly_wait(10)
+    driver.get("https://rahulshettyacademy.com/loginpagePractise/")
     request.cls.driver = driver
     yield
     driver.quit()
