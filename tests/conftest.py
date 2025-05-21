@@ -1,6 +1,6 @@
 import pytest
 from selenium import webdriver
-
+from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 import os
@@ -11,8 +11,10 @@ pytest_html = None
 
 @pytest.fixture(scope="class")
 def browser(request):
+    chrome_options = Options()
+    chrome_options.add_argument("--incognito")
     service = Service("C:/Users/Devils Den/WebDrivers/chromedriver.exe")
-    driver = webdriver.Chrome(service=service)
+    driver = webdriver.Chrome(service=service, options=chrome_options)
     driver.maximize_window()
     driver.implicitly_wait(10)
     driver.get("https://rahulshettyacademy.com/loginpagePractise/")
