@@ -14,6 +14,7 @@ def browser(request):
     service = Service("C:/Users/Devils Den/WebDrivers/chromedriver.exe")
     driver = webdriver.Chrome(service=service)
     driver.maximize_window()
+    driver.implicitly_wait(10)
     request.cls.driver = driver
     yield
     driver.quit()
