@@ -11,7 +11,7 @@ pytest_html = None
 
 @pytest.fixture(scope="class")
 def browser(request):
-    service = Service(ChromeDriverManager().install())
+    service = Service("C:/Users/Devils Den/WebDrivers/chromedriver.exe")
     driver = webdriver.Chrome(service=service)
     driver.maximize_window()
     request.cls.driver = driver
